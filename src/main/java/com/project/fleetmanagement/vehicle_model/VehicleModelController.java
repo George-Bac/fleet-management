@@ -2,6 +2,7 @@ package com.project.fleetmanagement.vehicle_model;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -10,4 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class VehicleModelController {
 
     private final VehicleModelService vehicleModelService;
+
+    @GetMapping
+    public String getVehicleModels() {
+        return "entity/vehicle-model";
+    }
 }
