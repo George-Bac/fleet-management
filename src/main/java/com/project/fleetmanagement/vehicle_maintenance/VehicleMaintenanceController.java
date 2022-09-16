@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/vehicles-maintenances")
+@RequestMapping("/vehicle-maintenances")
 @RequiredArgsConstructor
 public class VehicleMaintenanceController {
 
@@ -14,6 +14,6 @@ public class VehicleMaintenanceController {
 
     @GetMapping
     public String getVehicleMaintenances() {
-        return "entity/vehicles-maintenance";
+        return "entity/vehicle-maintenance";
     }
 }
