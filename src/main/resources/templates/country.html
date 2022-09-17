@@ -421,7 +421,7 @@
             <td th:text="${country.code}"></td>
             <td>
               <div class="button-group">
-                <div class="btn btn-primary" id="edit-button">Edit</div>
+                <a th:href="@{/countries/findById/{id}(id=${country.countryId})}" class="btn btn-primary" id="edit-button">Edit</a>
               </div>
             </td>
           </tr>
@@ -498,7 +498,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <form th:action="@{/countries/update-country}" method="post" th:object="${country}">
+        <form th:action="@{/countries/update-country}" method="put" th:object="${country}">
+          <div class="form-group">
+            <label for="countryId-edit" class="col-form-label">Id:</label>
+            <input type="text" class="form-control" id="countryId-edit" name="countryId" readonly>
+          </div>
           <div class="form-group">
             <label for="description-edit" class="col-form-label">Description:</label>
             <input type="text" class="form-control" id="description-edit" name="description">

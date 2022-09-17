@@ -14,6 +14,10 @@ public class CountryService {
         return countryRepository.findAll();
     }
 
+    public Country getCountryById(Long countryId) {
+        return countryRepository.findById(countryId).orElseThrow(() -> new RuntimeException(String.format("Country with id %s not found", countryId)));
+    }
+
     public Country saveCountry(Country country) {
         return countryRepository.save(country);
     }
