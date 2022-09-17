@@ -21,4 +21,8 @@ public class CountryService {
     public Country saveCountry(Country country) {
         return countryRepository.save(country);
     }
+
+    public void deleteCountryById(Long countryId) {
+        countryRepository.deleteById(countryId);
+    }
 }

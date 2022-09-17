@@ -26,7 +26,7 @@ public class CountryController {
         return "country";
     }
 
-    @RequestMapping("/findById/{countryId}")
+    @RequestMapping("/{countryId}")
     @ResponseBody
     public Country getCountryById(@PathVariable Long countryId) {
         log.info("countryId: {}", countryId);
@@ -42,6 +42,12 @@ public class CountryController {
     @RequestMapping(value = "/update-country", method = {RequestMethod.PUT, RequestMethod.GET})
     public String saveUpdateForm(@ModelAttribute Country country) {
         countryService.saveCountry(country);
+        return "redirect:/countries";
+    }
+
+    @RequestMapping(value = "/delete-country/{countryId}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String confirmDeleteModal(@PathVariable Long countryId) {
+        countryService.deleteCountryById(countryId);
         return "redirect:/countries";
     }
 }
