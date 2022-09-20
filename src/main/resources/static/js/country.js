@@ -1,7 +1,6 @@
 $("document").ready(function () {
     $("table #edit-button").on("click", function (event) {
         event.preventDefault();
-
         const href = $(this).attr("href");
         $.get(href, function (country, status) {
             $("#countryId-edit").val(country.countryId);
@@ -17,7 +16,6 @@ $("document").ready(function () {
 
     $("table #delete-button").on("click", function (event) {
         event.preventDefault();
-
         const href = $(this).attr("href");
         $("#confirm-delete-button").attr("href", href);
         $("#deleteModal").modal();
