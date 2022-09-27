@@ -3,7 +3,7 @@ $("document").ready(function () {
         event.preventDefault();
         const href = $(this).attr("href");
         $.get(href, function (state, status) {
-            $("#stateId-edit").val(state.stateId);
+            $("#stateId-edit").val(state.id);
             $("#ddl-country-edit").val(state.countryId);
             $("#description-edit").val(state.name);
             $("#capital-edit").val(state.capital);
