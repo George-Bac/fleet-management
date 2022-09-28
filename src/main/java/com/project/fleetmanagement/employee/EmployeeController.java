@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -27,12 +28,13 @@ public class EmployeeController {
     private final CountryService countryService;
 
     @GetMapping
-    public String getEmployees(Model model) {
-        model.addAttribute("employees", employeeService.getEmployees());
+    public String getEmployees(Model model, @RequestParam(required = false) String keyword) {
         model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
         model.addAttribute("jobTitles", jobTitleService.getJobTitles());
         model.addAttribute("states", stateService.getStates());
         model.addAttribute("countries", countryService.getCountries());
+
+        model.addAttribute("employees", keyword != null ? employeeService.findByKeyword(keyword) : employeeService.getEmployees());
         return "entity/employee";
     }
 

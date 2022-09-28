@@ -25,4 +25,8 @@ public class EmployeeService {
     public void deleteEmployeeById(Long employeeId) {
         employeeRepository.deleteById(employeeId);
     }
+
+    public List<Employee> findByKeyword(String keyword) {
+        return employeeRepository.findByKeyword(keyword);
+    }
 }
